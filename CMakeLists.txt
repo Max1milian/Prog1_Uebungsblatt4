@@ -5,6 +5,7 @@ project(Uebungsblatt4
 	DESCRIPTION "Viertes Übungsblatt"
 	HOMEPAGE_URL "https://github.com/Max1milian/Prog1_Uebungsblatt4")
 
+set(CURSES_NEED_NCURSES)
 find_package(Curses REQUIRED)
 
 if(MSVC)
@@ -19,5 +20,5 @@ add_executable(${PROJECT_NAME} ${SRC_FILES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CURSES_INCLUDE_DIRS})
+target_compile_options(${PROJECT_NAME} PRIVATE -std=c11 ${CURSES_CFLAGS}) 
 target_link_libraries(${PROJECT_NAME} PRIVATE ${CURSES_LIBRARIES})
-target_compile_options(${PROJECT_NAME} PRIVATE -std=c11)

@@ -1,0 +1,8 @@
+{
+	"name": "prog1uebungsblatt4",
+	"description": "snek",
+	"version-string": "0.0.1-dev",
+	"dependencies": [
+		"ncurses"
+	]
+}

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.25.0)
+cmake_minimum_required(VERSION 3.20.0)
 project(Uebungsblatt4
 	LANGUAGES C
 	VERSION 0.0.1
@@ -16,6 +16,8 @@ endif(MSVC)
 
 file(GLOB_RECURSE SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c)
 add_executable(${PROJECT_NAME} ${SRC_FILES})
+
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CURSES_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} PRIVATE ${CURSES_LIBRARIES})
-target_compile_options(${PROJECT_NAME} PRIVATE -stc=c11)
+target_compile_options(${PROJECT_NAME} PRIVATE -std=c11)

@@ -18,6 +18,6 @@ struct Element
 typedef struct Element Element;
 
 Element* element_erzeugen();
-char element_folge_pruefen (Element* pruef_ptr, Element* e_ptr);
+_Bool element_folge_pruefen (Element* pruef_ptr, Element* e_ptr);
 
 #endif /* ELEMENT_H_ */

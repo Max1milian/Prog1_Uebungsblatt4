@@ -55,6 +55,7 @@ void eingabe_einlesen(struct Eingabe* eingabe_ptr)
 				eingabe_ptr->letzte_eingabe_spieler_2 = BEWEGUNG_RECHTS;
 				break;
 			default:
+				break;
 				//UNGÜLTIG / UNBEKANNT
 		}
 

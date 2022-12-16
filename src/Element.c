@@ -27,10 +27,10 @@ bool element_folge_pruefen (Element* pruef_ptr, Element* e_ptr)
 		//ist die Position von x oder y gleich dem e_ptr so wird 1 zurück gegeben
 		if (pruef_ptr->pos.x == e_ptr->pos.x || pruef_ptr->pos.y == e_ptr->pos.y)
 		{
-			return 1;
+			return true;
 		}
 		//hier iterieren wir durch die Schlange durch
 		e_ptr = e_ptr->nachfolger_ptr;
 	}
-	return 0;
+	return false;
 }

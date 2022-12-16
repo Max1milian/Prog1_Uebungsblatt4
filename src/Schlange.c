@@ -25,8 +25,8 @@ void schlange_init (Schlange* schlange_ptr)
 Schlange* schlange_erzeugen()
 {
 	Schlange* snek = (Schlange*)malloc(sizeof(struct Schlange));
-	snek = schlange_init();
-	return NULL;
+	schlange_init(snek);
+	return snek;
 }
 
 
@@ -46,7 +46,7 @@ void schlange_zeichne(Schlange* schlange_ptr, int farbe)
 {
 	//Aufgabe 3d)
 	//TODO
-	//attron(COLOR_PAIR(farbe)); //Setzt die Farbe der Schrift und des Hintergrunds
+	attron(COLOR_PAIR(farbe)); //Setzt die Farbe der Schrift und des Hintergrunds
 }
 
 /*

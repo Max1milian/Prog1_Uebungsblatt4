@@ -16,12 +16,9 @@ Liste* liste_erzeugen()
 
 void liste_einfuegen_kopf(Liste* liste_ptr, Element* element_ptr)
 {
-	/*
-	Element *e = (struct Element*) malloc(sizeof(struct Element));
-	e->value = value;
-	e->pSuccessor = list->head; //kopf der übergebenenen List
-	list->head = e; //Element wird neuer Kopf
-	*/
+
+	//hier wird der nachfolge pointer der neue listenkopf
+	element_ptr->nachfolger_ptr = liste_ptr->kopf_ptr;
 	liste_ptr->kopf_ptr = element_ptr;
 	liste_ptr->laenge++;
 
@@ -29,7 +26,12 @@ void liste_einfuegen_kopf(Liste* liste_ptr, Element* element_ptr)
 
 Element* liste_entferne_ende(Liste* liste_ptr)
 {
-	//Aufgabe 2c)
-	//TODO
-	return NULL;
+	//hier erstellen wir ein pointer auf as Element
+	Element* element_ptr = liste_ptr->kopf_ptr; //hier übergeben wir den listenkopf pointer damit die Variable initialisiert ist
+	if (liste_ptr->kopf_ptr->nachfolger_ptr == NULL) {//gibt uns das letzte Element der liste zurück
+		element_ptr = liste_ptr->kopf_ptr->nachfolger_ptr;
+		element_ptr->nachfolger_ptr = NULL;
+	}
+	
+		return element_ptr;
 }

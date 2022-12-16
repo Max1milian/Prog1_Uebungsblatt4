@@ -8,17 +8,23 @@
 #include "Liste.h"
 Liste* liste_erzeugen()
 {
-	Liste* L = (struct List*) malloc(sizeof(struct Liste));
+	Liste* L = (struct Liste*) malloc(sizeof(struct Liste));
 	L->kopf_ptr = NULL;
 	L->laenge = 0;
 	return L;
-	return NULL;
 }
 
 void liste_einfuegen_kopf(Liste* liste_ptr, Element* element_ptr)
 {
+	/*
+	Element *e = (struct Element*) malloc(sizeof(struct Element));
+	e->value = value;
+	e->pSuccessor = list->head; //kopf der übergebenenen List
+	list->head = e; //Element wird neuer Kopf
+	*/
 	liste_ptr->kopf_ptr = element_ptr;
 	liste_ptr->laenge++;
+
 }
 
 Element* liste_entferne_ende(Liste* liste_ptr)
@@ -27,7 +33,3 @@ Element* liste_entferne_ende(Liste* liste_ptr)
 	//TODO
 	return NULL;
 }
-
-
-
-

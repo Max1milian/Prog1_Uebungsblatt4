@@ -5,6 +5,7 @@
  *      Author: student
  */
 #include "Element.h"
+#include <stdbool.h>
 Element* element_erzeugen()
 {
 	//hier erzeugen wir das Element auf dem Heap
@@ -17,10 +18,10 @@ Element* element_erzeugen()
 }
 
 /* Prüfe, ob e1 mit einem seiner Nachfolger übereinstimmt */
-_Bool element_folge_pruefen (Element* pruef_ptr, Element* e_ptr)
+bool element_folge_pruefen (Element* pruef_ptr, Element* e_ptr)
 {
-	Element* e = pruef_ptr;
-	while (pruef_ptr->nachfolger_ptr != NULL)
+	
+	while (e_ptr->nachfolger_ptr != NULL)
 	{
 		//Hier soll über die gesamte Liste des Prüfpointers durchiteriert werden.
 		//ist die Position von x oder y gleich dem e_ptr so wird 1 zurück gegeben
@@ -28,8 +29,8 @@ _Bool element_folge_pruefen (Element* pruef_ptr, Element* e_ptr)
 		{
 			return 1;
 		}
-		e = pruef_ptr->nachfolger_ptr;
+		//hier iterieren wir durch die Schlange durch
+		e_ptr = e_ptr->nachfolger_ptr;
 	}
-	
 	return 0;
 }

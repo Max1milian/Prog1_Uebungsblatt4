@@ -16,12 +16,16 @@ void schlange_init (Schlange* schlange_ptr)
 {
 	//Aufgabe 3a)
 	//TODO
+	Liste* L = liste_erzeugen();
+	schlange_ptr->positionen_ptr = L;
+	schlange_ptr->punkte = 0;
+	schlange_ptr->wachsen = 0;
 }
 
 Schlange* schlange_erzeugen()
 {
-	//Aufgabe 3b)
-	//TODO
+	Schlange* snek = (Schlange*)malloc(sizeof(struct Schlange));
+	snek = schlange_init();
 	return NULL;
 }
 

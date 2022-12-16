@@ -8,15 +8,17 @@
 #include "Liste.h"
 Liste* liste_erzeugen()
 {
-	//Aufgabe 2a)
-	//TODO
+	Liste* L = (struct List*) malloc(sizeof(struct Liste));
+	L->kopf_ptr = NULL;
+	L->laenge = 0;
+	return L;
 	return NULL;
 }
 
 void liste_einfuegen_kopf(Liste* liste_ptr, Element* element_ptr)
 {
-	//Aufgabe 2b)
-	//TODO
+	liste_ptr->kopf_ptr = element_ptr;
+	liste_ptr->laenge++;
 }
 
 Element* liste_entferne_ende(Liste* liste_ptr)

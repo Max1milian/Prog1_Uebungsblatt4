@@ -19,6 +19,7 @@
 [D]ebug/
 [R]elease/
 out/
+build/
 compile_commands.json
 # Fortran module files
 *.mod
@@ -34,6 +35,8 @@ compile_commands.json
 *.exe
 *.out
 *.app
+
+#cache
 .ccls
 .ccls-cache
-
+.vscode

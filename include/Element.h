@@ -10,14 +10,17 @@
 
 #include "Position.h"
 #include <stdlib.h>
+#include <stdbool.h>
 struct Element
 {
 	Position pos;
 	struct Element* nachfolger_ptr;
+	struct Element* vorgaenger_ptr;
+
 };
 typedef struct Element Element;
 
 Element* element_erzeugen();
-_Bool element_folge_pruefen (Element* pruef_ptr, Element* e_ptr);
+bool element_folge_pruefen (Element* pruef_ptr, Element* e_ptr);
 
 #endif /* ELEMENT_H_ */

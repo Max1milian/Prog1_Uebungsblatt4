@@ -8,11 +8,14 @@
 #ifndef LISTE_H
 #define LISTE_H
 #include "Element.h"
-
+#include <stdint.h>
 struct Liste
 {
+	//wir setzen zwei pointer, einmal für den Kopf und einmal für das Ende
+	//dies macht spätere Aufgaben etwas leichter
 	Element* kopf_ptr;
-	int laenge;
+	Element* ende_ptr;
+	int32_t laenge;
 };
 typedef struct Liste Liste;
 Liste* liste_erzeugen();

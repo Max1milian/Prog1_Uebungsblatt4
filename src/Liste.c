@@ -8,7 +8,7 @@
 #include "Liste.h"
 Liste* liste_erzeugen()
 {
-	Liste* L = (struct Liste*) malloc(sizeof(struct Liste));
+	Liste* L = (struct Liste*) calloc(2, sizeof(struct Liste));
 	L->kopf_ptr = NULL;
 	L->laenge = 0;
 	return L;
@@ -17,11 +17,19 @@ Liste* liste_erzeugen()
 void liste_einfuegen_kopf(Liste* liste_ptr, Element* element_ptr)
 {
 
-	//hier wird der nachfolge pointer der neue listenkopf
+	if (liste_ptr->laenge == 0) {
+		// Erstes Element in der Liste -> Ende der Liste setzen
+		liste_ptr->ende_ptr = element_ptr;
+	} else {
+		// Es gibt schon Elemente -> Vorgänger vom alten Kopf setzen
+		liste_ptr->kopf_ptr->vorgaenger_ptr = element_ptr;
+	}
+
 	element_ptr->nachfolger_ptr = liste_ptr->kopf_ptr;
+	element_ptr->vorgaenger_ptr = NULL;
+
 	liste_ptr->kopf_ptr = element_ptr;
 	liste_ptr->laenge++;
-
 }
 
 Element* liste_entferne_ende(Liste* liste_ptr)

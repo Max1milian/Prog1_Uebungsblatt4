@@ -11,7 +11,7 @@
 
 Eingabe* eingabe_erzeugen ()
 {
-	Eingabe* e_ptr = (Eingabe*)malloc(sizeof(Eingabe));
+	Eingabe* e_ptr = (Eingabe*)calloc(2, sizeof(Eingabe));
 	eingabe_init(e_ptr);
 	return e_ptr;
 }

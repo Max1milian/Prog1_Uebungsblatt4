@@ -10,7 +10,7 @@ Element* element_erzeugen()
 {
 	//hier erzeugen wir das Element auf dem Heap
 	//
-	Element* e = (struct Element*) malloc(sizeof(struct Element));
+	Element* e = (struct Element*) calloc(2, sizeof(struct Element));
 	e->nachfolger_ptr = NULL;
 	e->pos.x = 0;
 	e->pos.y = 0;

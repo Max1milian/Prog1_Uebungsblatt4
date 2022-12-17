@@ -5,13 +5,13 @@ project(Uebungsblatt4
 	DESCRIPTION "Viertes Übungsblatt"
 	HOMEPAGE_URL "https://github.com/Max1milian/Prog1_Uebungsblatt4")
 
-set(CURSES_NEED_NCURSES)
+set(CURSES_NEED_NCURSES TRUE)
 find_package(Curses REQUIRED)
 
 if(MSVC)
     add_compile_options(/W3 /WX /permissive)
 else()
-    add_compile_options(-Wextra -Wall -Werror -pedantic-errors)
+    add_compile_options(-Wextra -Wall -Werror -pedantic-errors -fanalyzer)
 endif(MSVC)
 
 

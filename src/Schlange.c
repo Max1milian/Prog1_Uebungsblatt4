@@ -24,7 +24,7 @@ void schlange_init (Schlange* schlange_ptr)
 
 Schlange* schlange_erzeugen()
 {
-	Schlange* snek = (Schlange*)malloc(sizeof(struct Schlange));
+	Schlange* snek = (Schlange*)calloc(2, sizeof(struct Schlange));
 	schlange_init(snek);
 	return snek;
 }
@@ -35,8 +35,17 @@ Schlange* schlange_erzeugen()
  * */
 void schlange_bewege (Schlange* schlange_ptr, int richtung)
 {
-	//Aufgabe 3c)
-	//TODO
+
+		switch (richtung) {
+		case BEWEGUNG_HOCH:
+			break;
+		case BEWEGUNG_RUNTER:
+			break;
+		case BEWEGUNG_LINKS:
+			break;
+		case BEWEGUNG_RECHTS:
+			break;
+	}
 }
 
 /*
@@ -45,8 +54,12 @@ void schlange_bewege (Schlange* schlange_ptr, int richtung)
 void schlange_zeichne(Schlange* schlange_ptr, int farbe)
 {
 	//Aufgabe 3d)
-	//TODO
 	attron(COLOR_PAIR(farbe)); //Setzt die Farbe der Schrift und des Hintergrunds
+	Element* element = schlange_ptr->positionen_ptr->kopf_ptr; //hier übergeben wir den Kopf der Schlange
+	while (element != NULL) {//wir laufen durch die schlange durch und zeichnen jedes Element drauf
+		console_zeichne_punkt(element->pos.x, element->pos.y, ' '); 
+		element = element->nachfolger_ptr;
+	}
 }
 
 /*

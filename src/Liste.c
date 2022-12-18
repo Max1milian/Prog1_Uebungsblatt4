@@ -6,9 +6,16 @@
  */
 
 #include "Liste.h"
+#include <stdio.h>
+#include <ncurses.h>
+
 Liste* liste_erzeugen()
 {
 	Liste* L = (struct Liste*) calloc(2, sizeof(struct Liste));
+	if (L == NULL) {
+		printw("Fehler bei erzeugen der Liste!\n");
+		exit(-1);
+	}
 	L->kopf_ptr = NULL;
 	L->laenge = 0;
 	return L;

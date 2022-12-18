@@ -12,6 +12,10 @@
 Eingabe* eingabe_erzeugen ()
 {
 	Eingabe* e_ptr = (Eingabe*)calloc(2, sizeof(Eingabe));
+	if (e_ptr == NULL) {
+		printw("Fehler bei eingabe_erzeugen!\n");
+		exit(-1);
+	}
 	eingabe_init(e_ptr);
 	return e_ptr;
 }

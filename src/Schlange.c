@@ -8,6 +8,7 @@
 #include "Configuration.h"
 #include "Schlange.h"
 #include "Console.h"
+#include <ncurses.h>
 
 /*
  * Initialisiert alle Attribute
@@ -25,6 +26,10 @@ void schlange_init (Schlange* schlange_ptr)
 Schlange* schlange_erzeugen()
 {
 	Schlange* snek = (Schlange*)calloc(2, sizeof(struct Schlange));
+	if (snek == NULL) {
+		printw("Fehler bei der Initialisierung der Schlange\n");
+		exit(-1);
+	}
 	schlange_init(snek);
 	return snek;
 }
@@ -35,17 +40,37 @@ Schlange* schlange_erzeugen()
  * */
 void schlange_bewege (Schlange* schlange_ptr, int richtung)
 {
+	
+		Element* alterKopf = schlange_ptr->positionen_ptr->kopf_ptr;
+		
+		//die Schlange wird erst als ein Punkt gespawnt und dann zieht sie sich aus wie eine ziehermonika
+		if (schlange_ptr->wachsen > 0) {
+			//hat noch nicht die ganze länge erreicht
+			schlange_ptr->wachsen--;	
+		} else if (schlange_ptr->wachsen == 0) {
+			//länge wurde erreicht
+			Element* entferntesEnde = liste_entferne_ende(schlange_ptr->positionen_ptr);	
+			free(entferntesEnde);
+		}
 
+		Element* neuerKopf = element_erzeugen();
+		neuerKopf->pos.x = alterKopf->pos.x;
+		neuerKopf->pos.y = alterKopf->pos.y;
 		switch (richtung) {
 		case BEWEGUNG_HOCH:
+			neuerKopf->pos.y--;
 			break;
 		case BEWEGUNG_RUNTER:
+			neuerKopf->pos.y++;
 			break;
 		case BEWEGUNG_LINKS:
+			neuerKopf->pos.x--;
 			break;
 		case BEWEGUNG_RECHTS:
+			neuerKopf->pos.x++;
 			break;
 	}
+		liste_einfuegen_kopf(schlange_ptr->positionen_ptr,neuerKopf);
 }
 
 /*
@@ -60,24 +85,4 @@ void schlange_zeichne(Schlange* schlange_ptr, int farbe)
 		console_zeichne_punkt(element->pos.x, element->pos.y, ' '); 
 		element = element->nachfolger_ptr;
 	}
-}
-
-/*
- * Die Funktion verändert die Schlange in Abhängigkeit des eingesammelten Pickups.
- * Alles ist denkbar. Beschleunigung, Wurmloch oder ähnliches.
- */
-void schlange_bearbeite_pickup(Schlange* schlange_ptr, char pickup)
-{
-	//Aufgabe 3e) OPTIONAL
-	//TODO
-}
-
-/*
- * Die Funktion sollte nach jeder Bewegung aufgerufen werden und zum Beispiel den
- * Punktestand in Abhängigkeit der Länge der Schlange oder der Spieldauer erhöhen.
- */
-void schlange_aktualisiere(Schlange* schlange_ptr)
-{
-	//Aufgabe 3f) OPTIONAL
-	//TODO
 }

@@ -6,11 +6,17 @@
  */
 #include "Element.h"
 #include <stdbool.h>
+#include <stdio.h>
+#include <ncurses.h>
 Element* element_erzeugen()
 {
 	//hier erzeugen wir das Element auf dem Heap
 	//
 	Element* e = (struct Element*) calloc(2, sizeof(struct Element));
+	if (e == NULL) {
+		printw("Fehler bei erzeugen des Elements!\n");
+		exit(-1);
+	}
 	e->nachfolger_ptr = NULL;
 	e->pos.x = 0;
 	e->pos.y = 0;

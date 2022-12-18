@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20.0)
-project(Uebungsblatt4
+project(Snek
 	LANGUAGES C
 	VERSION 0.0.1
 	DESCRIPTION "Viertes Übungsblatt"

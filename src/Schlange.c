@@ -15,8 +15,6 @@
  */
 void schlange_init (Schlange* schlange_ptr)
 {
-	//Aufgabe 3a)
-	//TODO
 	Liste* L = liste_erzeugen();
 	schlange_ptr->positionen_ptr = L;
 	schlange_ptr->punkte = 0;
@@ -43,7 +41,7 @@ void schlange_bewege (Schlange* schlange_ptr, int richtung)
 	
 		Element* alterKopf = schlange_ptr->positionen_ptr->kopf_ptr;
 		
-		//die Schlange wird erst als ein Punkt gespawnt und dann zieht sie sich aus wie eine ziehermonika
+		//die Schlange wird erst als ein Punkt erzeugt und dann zieht sie sich aus wie eine ziehermonika
 		if (schlange_ptr->wachsen > 0) {
 			//hat noch nicht die ganze länge erreicht
 			schlange_ptr->wachsen--;	
@@ -56,6 +54,7 @@ void schlange_bewege (Schlange* schlange_ptr, int richtung)
 		Element* neuerKopf = element_erzeugen();
 		neuerKopf->pos.x = alterKopf->pos.x;
 		neuerKopf->pos.y = alterKopf->pos.y;
+
 		switch (richtung) {
 		case BEWEGUNG_HOCH:
 			neuerKopf->pos.y--;

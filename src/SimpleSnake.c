@@ -61,6 +61,6 @@ int main(void) {
 
 	//Warte auf Tastendruck
 	getchar();
-
+	console_cursor_zeigen();
 	return EXIT_SUCCESS;
 }

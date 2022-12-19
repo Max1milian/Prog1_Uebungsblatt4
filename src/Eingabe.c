@@ -64,7 +64,7 @@ void eingabe_einlesen(struct Eingabe* eingabe_ptr)
 		}
 
 		flushinp(); 	// Leert den Puffer
-		usleep(1000000); 	// Hält den Thread für 100 us an.
+		usleep(1000); 	// Hält den Thread für 100 us an.
 	}
 }
 

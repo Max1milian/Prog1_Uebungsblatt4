@@ -35,7 +35,7 @@ Spiel* spiel_erzeugen()
 {
 	Spiel* neuesSpiel = (Spiel*) calloc(2,sizeof(Spiel));
 	if (neuesSpiel == NULL) {
-		printf("Fehler beim erzeugen eines Spiels!\n");
+		printw("Fehler beim erzeugen eines Spiels!\n");
 		exit(-1);
 	}
 	spiel_init(neuesSpiel);

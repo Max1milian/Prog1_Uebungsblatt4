@@ -75,6 +75,7 @@ void schlange_bewege (Schlange* schlange_ptr, int richtung)
 /*
  * Zeichnet die Schlange auf der Konsole
  */
+
 void schlange_zeichne(Schlange* schlange_ptr, int farbe)
 {
 	//Aufgabe 3d)

@@ -41,14 +41,13 @@ void liste_einfuegen_kopf(Liste* liste_ptr, Element* element_ptr)
 
 Element* liste_entferne_ende(Liste* liste_ptr)
 {
-	//Oszi Style
 	Element* element_ptr = liste_ptr->ende_ptr;
 	element_ptr->vorgaenger_ptr->nachfolger_ptr = NULL;
 	liste_ptr->ende_ptr = element_ptr->vorgaenger_ptr;
 	liste_ptr->laenge--;
 
 
-	//Maxi Style <-- Falsch, weil element_ptr Null wird und beim zeichnen dann Null dereferenziert wird aka sefault
+	//Falsch, weil element_ptr Null wird und beim zeichnen dann Null dereferenziert wird aka sefault
 	/*
 	//hier erstellen wir ein pointer auf as Element
 	Element* element_ptr = liste_ptr->kopf_ptr; //hier übergeben wir den listenkopf pointer damit die Variable initialisiert ist

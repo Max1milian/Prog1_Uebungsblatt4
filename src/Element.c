@@ -11,7 +11,6 @@
 Element* element_erzeugen()
 {
 	//hier erzeugen wir das Element auf dem Heap
-	//
 	Element* e = (struct Element*) calloc(2, sizeof(struct Element));
 	//error checking! Wenn kein Speicher allociert werden konnte soll das Programm terminieren
 	if (e == NULL) {

@@ -31,8 +31,8 @@ bool element_folge_pruefen (Element* pruef_ptr, Element* e_ptr)
 	while (e_ptr->nachfolger_ptr != NULL)
 	{
 		//Hier soll über die gesamte Liste des Prüfpointers durchiteriert werden.
-		//ist die Position von x oder y gleich dem e_ptr so wird 1 zurück gegeben
-		if (pruef_ptr->pos.x == e_ptr->pos.x || pruef_ptr->pos.y == e_ptr->pos.y)
+		//ist die Position von x und y gleich dem e_ptr so wird 1 zurück gegeben
+		if (pruef_ptr->pos.x == e_ptr->pos.x && pruef_ptr->pos.y == e_ptr->pos.y)
 		{
 			return true;
 		}

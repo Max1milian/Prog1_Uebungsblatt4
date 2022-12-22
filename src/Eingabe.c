@@ -11,6 +11,7 @@
 
 Eingabe* eingabe_erzeugen ()
 {
+	//erstellen der heat Variable mit 2xsizeof(Eingabe)
 	Eingabe* e_ptr = (Eingabe*)calloc(2, sizeof(Eingabe));
 	if (e_ptr == NULL) {
 		printw("Fehler bei eingabe_erzeugen!\n");
@@ -28,9 +29,9 @@ void eingabe_init(struct Eingabe* eingabe_ptr)
 
 void eingabe_einlesen(struct Eingabe* eingabe_ptr)
 {
-	char c = 'X';
 	for (int i = 0; i < 100; i++)
 	{
+		char c = 'X';
 		c = getch();
 		switch (c)
 		{

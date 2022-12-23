@@ -41,6 +41,7 @@ void liste_einfuegen_kopf(Liste* liste_ptr, Element* element_ptr)
 
 Element* liste_entferne_ende(Liste* liste_ptr)
 {
+
 	Element* element_ptr = liste_ptr->ende_ptr;
 	element_ptr->vorgaenger_ptr->nachfolger_ptr = NULL;
 	liste_ptr->ende_ptr = element_ptr->vorgaenger_ptr;
